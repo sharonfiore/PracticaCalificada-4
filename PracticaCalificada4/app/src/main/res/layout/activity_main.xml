@@ -10,7 +10,7 @@
         android:id="@+id/tvFormat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:text="Hello World!"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -18,11 +18,11 @@
 
     <ImageButton
         android:id="@+id/img_button"
-        android:layout_width="234dp"
+        android:layout_width="match_parent"
         android:layout_height="230dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="52dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="80dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -35,7 +35,7 @@
         android:layout_width="290dp"
         android:layout_height="66dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:text="xxxxxxxxxxx"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,18 +45,38 @@
 
     <Button
         android:id="@+id/btn_copiar"
-        android:layout_width="223dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="55sp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="44dp"
-        android:text="Abrir"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#E1FAE13D"
+        android:onClick="CopiarClic"
+        android:text="COPIAR AL PORTAPAPELES"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_url"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvresult"
+        app:layout_constraintVertical_bias="0.87" />
+
+    <Button
+        android:id="@+id/btn_url"
+        android:layout_width="0dp"
+        android:layout_height="55sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="48dp"
+        android:backgroundTint="#FCFFE33B"
+        android:onClick="AbrirClic"
+        android:text="ABRIR URL"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvresult" />
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

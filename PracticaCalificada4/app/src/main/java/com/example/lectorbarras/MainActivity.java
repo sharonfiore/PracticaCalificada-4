@@ -17,7 +17,7 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity {
 
     TextView informacion;
     Button copiar;
@@ -29,30 +29,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         configurarLector();
-
-        informacion = (TextView) findViewById(R.id.tvresult);
-        copiar =(Button) findViewById(R.id.btn_copiar);
-
-        copiar.setOnClickListener(this);
     }
+    /*************** BOTON COPIAR ******************/
 
-    @Override
-    public void onClick(View view) {
+    public void CopiarClic(View view){
+        informacion = (TextView) findViewById(R.id.tvresult);
         Info = informacion.getText().toString();
 
-        String separadores = "[\\ \\, \\.]";
-        String[] arreglo = Info.split(separadores);
-
-        if(1==0){
-            Uri url = Uri.parse(""+Info+"");
-            Intent intent = new Intent(Intent.ACTION_VIEW, url);
-            startActivity(intent);
-
-        }
-        else{
         ClipData clipp = ClipData.newPlainText("Texto",Info);
         ClipboardManager clipboard = (ClipboardManager)this.getSystemService(CLIPBOARD_SERVICE);
         clipboard.setPrimaryClip(clipp);
+
+        Toast.makeText(getApplicationContext(),"Texto copiado al Portapapeles",Toast.LENGTH_SHORT).show();
+    }
+
+    /*************** BOTON ABRIR URL ******************/
+    public void AbrirClic(View view){
+        informacion = (TextView) findViewById(R.id.tvresult);
+        Info = informacion.getText().toString();
+
+        try{
+            String separador = "://";
+            String[] textourl = Info.split(separador);
+            Toast.makeText(getApplicationContext(),Info,Toast.LENGTH_SHORT).show();
+
+            Uri url = Uri.parse(""+Info+"");
+            Intent intent = new Intent(Intent.ACTION_VIEW, url);
+            startActivity(intent);
+        }
+        catch (Exception ex){
+            Toast.makeText(getApplicationContext(),"El texto no es una URL, no se pudo abrir.",Toast.LENGTH_SHORT).show();
         }
     }
 
